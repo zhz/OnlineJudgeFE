@@ -3,6 +3,7 @@ import Logout from './user/Logout.vue'
 import UserHome from './user/UserHome.vue'
 import About from './help/About.vue'
 import FAQ from './help/FAQ.vue'
+import IDE from './ide/ide.vue'
 import NotFound from './general/404.vue'
 import Home from './general/Home.vue'
 import Announcements from './general/Announcements.vue'
@@ -24,6 +25,7 @@ export {
   Logout, UserHome, About, FAQ,
   ProblemList, Problem,
   ACMRank, OIRank,
+  IDE,
   SubmissionList, SubmissionDetails,
   ApplyResetPassword, ResetPassword
 }

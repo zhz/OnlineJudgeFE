@@ -268,6 +268,17 @@ export default {
     return ajax('admin/contest/acm_helper', 'put', {
       data
     })
+  },
+  IDE (data) {
+    return ajax('ide', 'post', {
+      data
+    })
+  },
+  GetSighinStatus () {
+    return ajax('sighin', 'get')
+  },
+  UserSighin () {
+    return ajax('sighin', 'post')
   }
 }
 

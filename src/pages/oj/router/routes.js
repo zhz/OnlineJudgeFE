@@ -7,6 +7,7 @@ import {
   FAQ,
   Home,
   Logout,
+  IDE,
   NotFound,
   OIRank,
   Problem,
@@ -172,6 +173,12 @@ export default [
     name: 'faq',
     meta: {title: 'FAQ'},
     component: FAQ
+  },
+  {
+    path: '/IDE',
+    name: 'IDE',
+    meta: {title: 'IDE'},
+    component: IDE
   },
   {
     path: '*',

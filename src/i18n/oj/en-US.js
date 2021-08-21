@@ -148,6 +148,7 @@ export const m = {
   NavProblems: 'Problems',
   Contests: 'Contests',
   NavStatus: 'Status',
+  IDE: 'Code Online',
   Rank: 'Rank',
   ACM_Rank: 'ACM Rank',
   OI_Rank: 'OI Rank',
