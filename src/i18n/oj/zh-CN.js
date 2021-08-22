@@ -146,7 +146,7 @@ export const m = {
   // NavBar.vue
   Home: '首页',
   NavProblems: '问题',
-  Contests: '练习&比赛',
+  Contests: '练习/作业/比赛',
   NavStatus: '状态',
   IDE: '在线编程',
   Rank: '排名',

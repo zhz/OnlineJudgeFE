@@ -1,6 +1,9 @@
 <template>
   <div class="flex-container">
     <div id="problem-main">
+      <Row type="flex" :gutter="18">
+      <Col :span="16">
+
       <Card :padding="20" id="submit-code" dis-hover>
 	      <div slot="title" style="font-size:21px; font-weight:500; padding-top:10px; padding-bottom:20px; line-height:30px; padding:5px 15px;">{{$t('m.IDE')}}</div>
         <CodeMirror :value.sync="code"
@@ -9,7 +12,8 @@
                     :theme="theme"
                     @resetCode="onResetToTemplate"
                     @changeTheme="onChangeTheme"
-                    @changeLang="onChangeLang"></CodeMirror>
+                    @changeLang="onChangeLang">
+        </CodeMirror>
         <Row type="flex" justify="space-between">
           <Col span="24">
             <template v-if="captchaRequired">
@@ -26,28 +30,36 @@
           <Col :span="12" style="margin-top: 20px; margin-left: 45px;">
             <Button type="warning" icon="md-create" :loading="submitting" @click="submitCode"
               class="fl-right">
-              <span v-if="submitting">Submitting</span>
-              <span v-else>Submit</span>
+              <span v-if="submitting">{{$t('m.Submitting')}}</span>
+              <span v-else>{{$t('m.Submit')}}</span>
             </Button>
           </Col>
         </Row>
       </Card>
-      <Row type="flex" :gutter="24">
-	      <Col span="12">
-          <Card :bordered="false">
-            <p slot="title">Input</p>
-            <Input v-model="input" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="Enter Input" />
-          </Card>
-        </Col>
-        <Col span="12">
+      </Col>
+      <Col :span="8">
+      <Row type="flex" :gutter="24" style="margin-bottom:10px;">
+	      <Col span="24">
           <Card shadow>
-            <p slot="title">Output:</p>
-		        <p slot="extra">Time: {{time_cost}}ms</p>
-	  	      <p slot="extra">Memory: {{memory_cost}}MB</p>
-            <Input v-model="output" readonly type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="Output" />
+            <p slot="title">{{$t('m.Input')}}</p>
+            <Input v-model="input" type="textarea" :autosize="{minRows: 8,maxRows: 8}" placeholder="" />
           </Card>
         </Col>
       </Row>
+ 
+      <Row type="flex" :gutter="24" :margin-top="20">
+        <Col span="24" :padding="10">
+          <Card shadow>
+            <p slot="title">{{$t('m.Output')}}</p>
+		        <p slot="extra">{{$t('m.Time')}}: {{time_cost}}ms</p>
+	  	      <p slot="extra">{{$t('m.Memory')}}: {{memory_cost}}MB</p>
+            <Input v-model="output" readonly type="textarea" :autosize="{minRows: 8,maxRows: 8}" placeholder="" />
+          </Card>
+        </Col>
+      </Row>
+
+    </Col>
+    </Row>
     </div>
   </div>
 </template>
@@ -88,8 +100,8 @@
             data: []
           }
         },
-        time_cost: 'None ',
-        memory_cost: 'None '
+        time_cost: ' ',
+        memory_cost: ' '
       }
     },
     mounted () {
@@ -126,7 +138,7 @@
       },
       onResetToTemplate () {
         this.$Modal.confirm({
-          content: 'Are you sure you want to reset your code?',
+          content: this.$i18n.t('m.Are_you_sure_you_want_to_reset_your_code'),
           onOk: () => {
             this.code = ''
           }
@@ -134,7 +146,7 @@
       },
       submitCode () {
         if (this.code.trim() === '') {
-          this.$error('Code can not be empty')
+          this.$error(this.$i18n.t('m.Code_can_not_be_empty'))
           return
         }
         this.submitting = true
@@ -239,12 +251,12 @@
 
 <style lang="less" scoped>
   .card-title {
-    margin-left: 8px;
+    // margin-left: 8px;
   }
   .flex-container {
     #problem-main {
       flex: auto;
-      margin-right: 18px;
+      // margin-right: 18px;
     }
     #right-column {
       flex: none;
@@ -285,7 +297,7 @@
     }
   }
   #submit-code {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     margin-bottom: 20px;
     .status {
       float: left;
