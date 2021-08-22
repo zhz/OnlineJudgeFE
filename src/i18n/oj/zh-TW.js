@@ -148,7 +148,7 @@ export const m = {
   NavProblems: '試題',
   Contests: '比賽',
   NavStatus: '狀態',
-  IDE: '在线编程',
+  IDE: '在線編程',
   Rank: '排名',
   ACM_Rank: 'ACM 排名',
   OI_Rank: 'OI 排名',

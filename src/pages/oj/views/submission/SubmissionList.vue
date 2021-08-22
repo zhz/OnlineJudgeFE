@@ -335,7 +335,6 @@
   .flex-container {
     #main {
       flex: auto;
-      margin-right: 18px;
       .filter {
         margin-right: -10px;
       }
