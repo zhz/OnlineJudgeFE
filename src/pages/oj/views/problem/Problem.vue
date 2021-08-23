@@ -2,6 +2,10 @@
   <div class="flex-container">
     <div id="problem-main">
       <!--problem main-->
+
+<Card :padding="20" id="submit-code" dis-hover>
+        <Tabs :animated="false">
+      <TabPane :label="$t('m.ProblemDescription')" name="first">
       <Panel :padding="40" shadow>
         <div slot="title">{{problem.title}}</div>
         <div id="problem-content" class="markdown-body" v-katex>
@@ -48,8 +52,11 @@
 
         </div>
       </Panel>
+  
       <!--problem main end-->
-      <Card :padding="20" id="submit-code" dis-hover>
+      </TabPane>
+      <TabPane :label="$t('m.SubmitCode')" name="second">
+
         <CodeMirror :value.sync="code"
                     :languages="problem.languages"
                     :language="language"
@@ -98,8 +105,12 @@
             </Button>
           </Col>
         </Row>
-      </Card>
+
+      </TabPane>
+      </Tabs>
+            </Card>      
     </div>
+
 
     <div id="right-column">
       <VerticalMenu @on-click="handleRoute">
@@ -196,6 +207,7 @@
         <Button type="ghost" @click="graphVisible=false">{{$t('m.Close')}}</Button>
       </div>
     </Modal>
+
   </div>
 </template>
 
@@ -560,8 +572,8 @@
   }
 
   #submit-code {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
     .status {
       float: left;
       span {
@@ -620,6 +632,12 @@
     margin-top: 20px;
     width: 500px;
     height: 480px;
+  }
+  .ivu-tabs-nav-wrap{
+  text-align: center;
+  }
+  .ivu-tabs-nav-scroll{
+  display: inline-block;
   }
 </style>
 

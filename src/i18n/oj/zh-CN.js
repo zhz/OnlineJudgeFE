@@ -2,7 +2,9 @@ export const m = {
     // 404.vue
   Go_Home: '返回主页',
   // Problem.vue
-  Description: '题目描述',
+  ProblemDescription: '问题描述',
+  SubmitCode: '提交代码',
+  Description: '题目描f述',
   Input: '输入',
   Output: '输出',
   Sample_Input: '输入样例',
@@ -258,5 +260,7 @@ export const m = {
   UserHomeserSubmissions: '提交次数',
   UserHomeScore: '分数',
   List_Solved_Problems: '已解决问题的列表',
-  UserHomeIntro: '这个家伙太懒了，还没有做题呢...'
+  UserHomeIntro: '这个家伙太懒了，还没有做题呢...',
+  // IDE.vue
+  IDEHint: '请提前录入要读取的数据再点击提交按钮'
 }

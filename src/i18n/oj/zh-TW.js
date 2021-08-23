@@ -2,6 +2,8 @@ export const m = {
   // 404.vue
   Go_Home: '回到首頁',
   // Problem.vue
+  ProblemDescription: '問題描述',
+  SubmitCode: '提交代碼',
   Description: '題目描述',
   Input: '輸入',
   Output: '輸出',
@@ -258,5 +260,7 @@ export const m = {
   UserHomeserSubmissions: '提交次數',
   UserHomeScore: '分數',
   List_Solved_Problems: '已完成題目的列表',
-  UserHomeIntro: '這個使用者尚未解題...'
+  UserHomeIntro: '這個使用者尚未解題...',
+  // IDE.vue
+  IDEHint: '請提前錄入要讀取的數據再點擊提交按鈕'
 }

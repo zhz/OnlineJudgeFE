@@ -27,7 +27,7 @@
           </Col>
         </Row>
         <Row type="flex" justify="space-between">
-          <Col :span="12" style="margin-top: 20px; margin-left: 45px;">
+          <Col :span="12">
             <Button type="warning" icon="md-create" :loading="submitting" @click="submitCode"
               class="fl-right">
               <span v-if="submitting">{{$t('m.Submitting')}}</span>
@@ -47,13 +47,22 @@
         </Col>
       </Row>
  
-      <Row type="flex" :gutter="24" :margin-top="20">
+      <Row type="flex" :gutter="24" style="margin-bottom:10px;">
         <Col span="24" :padding="10">
           <Card shadow>
             <p slot="title">{{$t('m.Output')}}</p>
-		        <p slot="extra">{{$t('m.Time')}}: {{time_cost}}ms</p>
-	  	      <p slot="extra">{{$t('m.Memory')}}: {{memory_cost}}MB</p>
+		        <p slot="extra">{{$t('m.Time')}}: {{time_cost}} ms</p>
+	  	      <p slot="extra">{{$t('m.Memory')}}: {{memory_cost}} MB</p>
             <Input v-model="output" readonly type="textarea" :autosize="{minRows: 8,maxRows: 8}" placeholder="" />
+          </Card>
+        </Col>
+      </Row>
+
+      <Row type="flex" :gutter="24">
+	      <Col span="24">
+          <Card shadow>
+            <p slot="title">{{$t('m.Hint')}}</p>
+            <p>{{$t('m.IDEHint')}}</p>
           </Card>
         </Col>
       </Row>
@@ -297,8 +306,8 @@
     }
   }
   #submit-code {
-    /*margin-top: 20px;*/
-    margin-bottom: 20px;
+    // margin-top: 20px;
+    // margin-bottom: 20px;
     .status {
       float: left;
       span {

@@ -2,6 +2,8 @@ export const m = {
   // 404.vue
   Go_Home: 'Go Home',
   // Problem.vue
+  ProblemDescription: 'Problem Description',
+  SubmitCode: 'Submit Code',
   Description: 'Description',
   Input: 'Input',
   Output: 'Output',
@@ -258,5 +260,7 @@ export const m = {
   UserHomeserSubmissions: 'Submissions',
   UserHomeScore: 'Score',
   List_Solved_Problems: 'List of solved problems',
-  UserHomeIntro: 'The guy is so lazy that has not solved any problem yet.'
+  UserHomeIntro: 'The guy is so lazy that has not solved any problem yet.',
+  // IDE.vue
+  IDEHint: 'Input data for program before click submit'
 }
