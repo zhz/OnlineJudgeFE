@@ -143,6 +143,10 @@ export const m = {
   Monokai: 'Monokai',
   Solarized_Light: 'Solarized Light',
   Material: 'Material',
+  Demonstration: 'Demonstration',
+  EnlargeFont: 'Enlarge Font Size',
+  ShrinkFont: 'Shrink Font Size',
+  FullScreen: 'Full Screen',
   // KatexEditor.vue
   Latex_Editor: 'Latex Editor',
   // NavBar.vue

@@ -28,6 +28,17 @@
           <Option v-for="item in themes" :key="item.label" :value="item.value">{{item.label}}
           </Option>
         </Select>
+        <Tooltip :content="this.$i18n.t('m.EnlargeFont')" placement="top" style="margin-left: 10px">
+          <Button icon="plus" @click="onEnlargeFont"></Button>
+        </Tooltip>
+        <Tooltip :content="this.$i18n.t('m.ShrinkFont')" placement="top" style="margin-left: 10px">
+          <Button icon="minus" @click="onShrinkFont"></Button>
+        </Tooltip>
+        <Tooltip :content="this.$i18n.t('m.FullScreen')" placement="top" style="margin-left: 10px">
+          <Button icon="android-expand" @click="onFullScreen"></Button>
+        </Tooltip>
+        <el-tooltip>
+        </el-tooltip>          
       </div>
       </Col>
     </Row>
@@ -43,6 +54,7 @@
   import 'codemirror/theme/monokai.css'
   import 'codemirror/theme/solarized.css'
   import 'codemirror/theme/material.css'
+  import 'codemirror/theme/demonstration.css'
 
   // mode
   import 'codemirror/mode/clike/clike.js'
@@ -57,6 +69,10 @@
   import 'codemirror/addon/fold/foldgutter.js'
   import 'codemirror/addon/fold/brace-fold.js'
   import 'codemirror/addon/fold/indent-fold.js'
+
+  // fullscreen
+  import 'codemirror/addon/display/fullscreen.css'
+  import 'codemirror/addon/display/fullscreen.js'
 
   export default {
     name: 'CodeMirror',
@@ -98,7 +114,16 @@
           // 选中文本自动高亮，及高亮方式
           styleSelectedText: true,
           lineWrapping: true,
-          highlightSelectionMatches: {showToken: /\w/, annotateScrollbar: true}
+          highlightSelectionMatches: {showToken: /\w/, annotateScrollbar: true},
+          fullscreen: false,
+          extraKeys: {
+            'F11': function (cm) {
+              cm.setOption('fullScreen', !cm.getOption('fullScreen'))
+            },
+            'Esc': function (cm) {
+              if (cm.getOption('fullScreen')) cm.setOption('fullScreen', false)
+            }
+          }
         },
         mode: {
           'C++': 'text/x-csrc'
@@ -106,7 +131,8 @@
         themes: [
           {label: this.$i18n.t('m.Monokai'), value: 'monokai'},
           {label: this.$i18n.t('m.Solarized_Light'), value: 'solarized'},
-          {label: this.$i18n.t('m.Material'), value: 'material'}
+          {label: this.$i18n.t('m.Material'), value: 'material'},
+          {label: this.$i18n.t('m.Demonstration'), value: 'demonstration'}
         ]
       }
     },
@@ -149,6 +175,33 @@
           document.getElementById('file-uploader').value = ''
         }
         fileReader.readAsText(f, 'UTF-8')
+      },
+      onEnlargeFont () {
+        try {
+          var cm = document.getElementsByClassName('CodeMirror')[0]
+          if (cm) {
+            var oldsize = window.getComputedStyle(cm).fontSize
+            var newsize = parseInt(oldsize) + 1
+            cm.style.fontSize = newsize + 'px'
+            this.editor.refresh()
+          }
+        } catch (e) {
+        }
+      },
+      onShrinkFont () {
+        try {
+          var cm = document.getElementsByClassName('CodeMirror')[0]
+          if (cm) {
+            var oldsize = window.getComputedStyle(cm).fontSize
+            var newsize = parseInt(oldsize) - 1
+            cm.style.fontSize = newsize + 'px'
+            this.editor.refresh()
+          }
+        } catch (e) {
+        }
+      },
+      onFullScreen () {
+        this.editor.setOption('fullScreen', !this.editor.getOption('fullScreen'))
       }
     },
     computed: {
@@ -186,4 +239,10 @@
     min-height: 420px;
     max-height: 1000px;
   }
+ .CodeMirror-fullscreen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  height: auto;
+  z-index: 1024;
+  } 
 </style>

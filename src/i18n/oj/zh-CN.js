@@ -143,6 +143,10 @@ export const m = {
   Monokai: '物界',
   Solarized_Light: '日光灯',
   Material: '材料',
+  Demonstration: '演示',
+  EnlargeFont: '放大字体',
+  ShrinkFont: '缩小字体',
+  FullScreen: '全屏',
   // KatexEditor.vue
   Latex_Editor: 'Latex 编辑器',
   // NavBar.vue
