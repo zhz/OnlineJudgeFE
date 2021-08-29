@@ -37,8 +37,8 @@
         <Tooltip :content="this.$i18n.t('m.FullScreen')" placement="top" style="margin-left: 10px">
           <Button icon="android-expand" @click="onFullScreen"></Button>
         </Tooltip>
-        <el-tooltip>
-        </el-tooltip>          
+        <Tooltip>
+        </Tooltip>          
       </div>
       </Col>
     </Row>
@@ -241,6 +241,6 @@
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   height: auto;
-  z-index: 1024;
+  z-index: 1024 !important;
   } 
 </style>
