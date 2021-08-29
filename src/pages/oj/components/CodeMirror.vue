@@ -54,7 +54,6 @@
   import 'codemirror/theme/monokai.css'
   import 'codemirror/theme/solarized.css'
   import 'codemirror/theme/material.css'
-  import 'codemirror/theme/demonstration.css'
 
   // mode
   import 'codemirror/mode/clike/clike.js'
@@ -131,8 +130,7 @@
         themes: [
           {label: this.$i18n.t('m.Monokai'), value: 'monokai'},
           {label: this.$i18n.t('m.Solarized_Light'), value: 'solarized'},
-          {label: this.$i18n.t('m.Material'), value: 'material'},
-          {label: this.$i18n.t('m.Demonstration'), value: 'demonstration'}
+          {label: this.$i18n.t('m.Material'), value: 'material'}
         ]
       }
     },
